@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model OnlineShop.Web.ViewModels.Products.ProductInputViewModel
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,21 +14,74 @@
 
     <link rel="stylesheet" href="~/assets/css/fontawesome.css">
     <link rel="stylesheet" href="~/assets/css/templatemo-sixteen.css">
+
+    <link rel="stylesheet" href="~/css/create-product.css" />
 </head>
 
-<body>
+<body class="bg-dark">
     <br />
     <br />
     <br />
-
-    <div class=text-center>
-        <h1>Create new Prodcut</h1>
-    </div>
+    <br />
     <div class="container">
-        <form>
-            <label>Title</label>
-            <input type="text" class="form-control"/>
-        </form>
+        <div class="bg-dark" style="height: 60px; padding: 5px;">
+            <h3 class="text-light" style="text-align: center;">Create new product!</h3>
+        </div>
+        <div class="container bg-dark">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6 bg-light boxStyle">
+                    <form method="post" enctype="multipart/form-data" asp-controller="Products" asp-action="Create">
+
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>Title</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Title" class="width100 form-control">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div><br><br>
+
+                            <div class="width30 floatL"><label>Image</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Image">
+                                <span asp-validation-for="Image" class="text-danger"></span>
+                            </div><br><br>
+
+                            <div class="width30 floatL"><label>Price</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Price" class="width100 form-control">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div><br><br>
+
+                            <div class="width30 floatL"><label>Description</label></div>
+                            <div class="width70 floatR">
+                                <textarea asp-for="Description" class="width100 form-control"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div><br><br>
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="width50">
+                                        <input class="btn btn-success" type="submit" value="Create" style="font-weight: bold">
+                                    </div>
+                                    <div class="width50">
+                                        <input class="btn btn-danger" type="reset" style="font-weight: bold">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a class="btn btn-primary" asp-controller="Products" asp-action="ProductPage">Back to Products</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->

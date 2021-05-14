@@ -12,6 +12,11 @@
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\images\adidas.jpg" />
+    <None Include="wwwroot\images\IMG_20210105_150344.jpg" />
+    <None Include="wwwroot\images\product_01.jpg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
