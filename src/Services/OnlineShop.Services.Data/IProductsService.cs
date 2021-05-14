@@ -4,6 +4,6 @@
 
     public interface IProductsService
     {
-        Task Create();
+        Task Create(string title, string description, string imagePath, decimal price);
     }
 }
