@@ -9,9 +9,9 @@
 
         Task RemoveAsync(int orderId);
 
-        Task IncrementQuantity();
+        Task IncrementQuantity(int orderId);
 
-        Task DecrementQuantity();
+        Task DecrementQuantity(int orderId);
 
         Task<IEnumerable<T>> GetAllByUserAsync<T>(string userId);
     }

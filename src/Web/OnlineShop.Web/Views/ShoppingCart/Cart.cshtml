@@ -58,7 +58,15 @@
                                 </div>
                             </td>
                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                                <input type="email" class="form-control" id="exampleInputEmail1" value="3">
+                                <a asp-controller="Order" asp-action="IncrementOrderQuantity" asp-route-orderId="@order.Id">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <p style="color: red; margin-top: 10px">
+                                    <span class="badge badge-light">@order.Quantity</span>
+                                </p>
+                                <a asp-controller="Order" asp-action="DecrementOrderQuantity" asp-route-orderId="@order.Id">
+                                    <i style="margin-top: 20px" class="fa fa-minus"></i>
+                                </a>
                             </td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>$@order.ProductPrice</strong></td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>$@order.TotalProductPrice.ToString("F2")</strong></td>

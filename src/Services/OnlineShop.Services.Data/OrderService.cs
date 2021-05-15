@@ -20,7 +20,7 @@
 
         public async Task AddAsync(int productId, string userId)
         {
-            var order = await this.orderRepository.All()
+            var order = await this.orderRepository.AllWithDeleted()
                 .FirstOrDefaultAsync(x => x.ProductId == productId && x.UserId == userId);
 
             if (order != null)
@@ -28,6 +28,7 @@
                 if (order.IsDeleted)
                 {
                     order.IsDeleted = false;
+                    order.Quantity = 1;
                 }
                 else
                 {
@@ -56,14 +57,26 @@
             await this.orderRepository.SaveChangesAsync();
         }
 
-        public Task IncrementQuantity()
+        public async Task IncrementQuantity(int orderId)
         {
-            throw new System.NotImplementedException();
+            var order = await this.orderRepository.All()
+                .FirstOrDefaultAsync(x => x.Id == orderId);
+            order.Quantity++;
+            await this.orderRepository.SaveChangesAsync();
         }
 
-        public Task DecrementQuantity()
+        public async Task DecrementQuantity(int orderId)
         {
-            throw new System.NotImplementedException();
+            var order = await this.orderRepository.All()
+                .FirstOrDefaultAsync(x => x.Id == orderId);
+
+            if (order.Quantity <= 1)
+            {
+                return;
+            }
+
+            order.Quantity--;
+            await this.orderRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllByUserAsync<T>(string userId)
