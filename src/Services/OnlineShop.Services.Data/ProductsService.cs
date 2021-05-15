@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace OnlineShop.Services.Data
+﻿namespace OnlineShop.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
     using OnlineShop.Data.Common.Repositories;
     using OnlineShop.Data.Models;
     using OnlineShop.Services.Mapping;
