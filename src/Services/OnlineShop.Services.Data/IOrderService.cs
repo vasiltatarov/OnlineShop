@@ -13,6 +13,6 @@
 
         Task DecrementQuantity();
 
-        IEnumerable<T> GetAllByUser<T>(string userId);
+        Task<IEnumerable<T>> GetAllByUserAsync<T>(string userId);
     }
 }
