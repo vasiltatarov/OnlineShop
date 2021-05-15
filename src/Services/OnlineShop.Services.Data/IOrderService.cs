@@ -7,7 +7,7 @@
     {
         Task AddAsync(int productId, string userId);
 
-        Task RemoveAsync();
+        Task RemoveAsync(int orderId);
 
         Task IncrementQuantity();
 

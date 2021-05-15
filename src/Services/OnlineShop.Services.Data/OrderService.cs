@@ -48,9 +48,12 @@
             await this.orderRepository.SaveChangesAsync();
         }
 
-        public Task RemoveAsync()
+        public async Task RemoveAsync(int orderId)
         {
-            throw new System.NotImplementedException();
+            var order = await this.orderRepository.All()
+                .FirstOrDefaultAsync(x => x.Id == orderId);
+            order.IsDeleted = true;
+            await this.orderRepository.SaveChangesAsync();
         }
 
         public Task IncrementQuantity()

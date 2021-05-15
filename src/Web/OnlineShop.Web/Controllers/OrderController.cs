@@ -28,5 +28,12 @@
 
             return this.RedirectToAction("ProductPage", "Products");
         }
+
+        public async Task<IActionResult> RemoveOrder(int orderId)
+        {
+            await this.orderService.RemoveAsync(orderId);
+
+            return this.RedirectToAction("Cart", "ShoppingCart");
+        }
     }
 }

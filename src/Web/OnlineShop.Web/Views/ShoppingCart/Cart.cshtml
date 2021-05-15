@@ -63,9 +63,9 @@
                             <td class="col-sm-1 col-md-1 text-center"><strong>$@order.ProductPrice</strong></td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>$@order.TotalProductPrice.ToString("F2")</strong></td>
                             <td class="col-sm-1 col-md-1">
-                                <button type="button" class="btn btn-danger">
+                                <a asp-controller="Order" asp-action="RemoveOrder" asp-route-orderId="@order.Id" class="btn btn-danger">
                                     <span class="glyphicon glyphicon-remove"></span> Remove
-                                </button>
+                                </a>
                             </td>
                         </tr>
                     }
