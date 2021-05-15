@@ -34,7 +34,9 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a asp-controller="Home" asp-action="Index" class="nav-link"><i class="fa fa-shopping-cart fa-2x"></i>Cart</a>
+                            <a asp-controller="ShoppingCart" asp-action="Cart" class="nav-link">
+                                <span class="badge badge-light">4</span><i class="fa fa-shopping-cart fa-2x"></i>Cart
+                            </a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
