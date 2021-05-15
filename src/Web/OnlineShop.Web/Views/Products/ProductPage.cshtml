@@ -75,7 +75,9 @@
                                         <a href="#"><h4>@product.Title</h4></a>
                                         <h6>$ @product.Price</h6>
                                         <p>@product.Description</p>
-                                        <a href="#" class="btn btn-danger mt-3"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                        <a asp-controller="Order" asp-action="AddOrder" asp-route-productId="@product.Id" class="btn btn-danger mt-3">
+                                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                                        </a>
                                     </div>
                                 </div>
                             </div>
